@@ -6,15 +6,8 @@ const twemoji = require('twemoji')
 const twOptions = { folder: 'svg', ext: '.svg' }
 const emojify = (text: string) => twemoji.parse(text, twOptions)
 
-const rglr = readFileSync(
-  `${__dirname}/../_fonts/Inter-Regular.woff2`
-).toString('base64')
-const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString(
-  'base64'
-)
-const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
-  'base64'
-)
+const rglr = readFileSync(`${__dirname}/../_fonts/Pretendard-Regular.woff2`).toString('base64')
+const bold = readFileSync(`${__dirname}/../_fonts/Pretendard-Bold.woff2`).toString('base64')
 
 function getCss(theme: string, fontSize: string) {
   let background = 'white'
@@ -29,25 +22,18 @@ function getCss(theme: string, fontSize: string) {
   return `
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
     @font-face {
-        font-family: 'Inter';
+        font-family: 'Pretendard';
         font-style:  normal;
         font-weight: normal;
         src: url(data:font/woff2;charset=utf-8;base64,${rglr}) format('woff2');
     }
 
     @font-face {
-        font-family: 'Inter';
+        font-family: 'Pretendard';
         font-style:  normal;
         font-weight: bold;
         src: url(data:font/woff2;charset=utf-8;base64,${bold}) format('woff2');
     }
-
-    @font-face {
-        font-family: 'Vera';
-        font-style: normal;
-        font-weight: normal;
-        src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
-      }
 
     body {
         background: ${background};
@@ -62,7 +48,7 @@ function getCss(theme: string, fontSize: string) {
 
     code {
         color: #D400FF;
-        font-family: 'Vera';
+        font-family: 'Pretendard';
         white-space: pre-wrap;
         letter-spacing: -5px;
     }
@@ -102,7 +88,7 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        font-family: 'Noto Sans SC', 'Inter', sans-serif;
+        font-family: 'Noto Sans SC', 'Pretendard', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
